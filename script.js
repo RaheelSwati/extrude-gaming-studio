@@ -29,26 +29,29 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Initialize Swiper
-    const swiper = new Swiper('.hero-slider', {
-        effect: 'fade',
-        fadeEffect: {
-            crossFade: true
-        },
-        speed: 1000,
-        autoplay: {
-            delay: 5000,
-            disableOnInteraction: false,
-        },
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-        },
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
-        loop: true
-    });
+    const heroSlider = document.querySelector('.hero-slider');
+    if (heroSlider && typeof Swiper !== 'undefined') {
+        const swiper = new Swiper('.hero-slider', {
+            effect: 'fade',
+            fadeEffect: {
+                crossFade: true
+            },
+            speed: 1000,
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            loop: true
+        });
+    }
 
     // Scroll Reveal Animation
     const revealElements = document.querySelectorAll('.game-card, .section-title, .hero-content');
